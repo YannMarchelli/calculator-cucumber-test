@@ -91,3 +91,18 @@ Feature: Integer Arithmetic Expressions
       | "-" | 8| 5|     3|
       | "*" | 7| 2|    14|
       | "/" | 6| 2|     3|
+
+  Scenario Outline: Printing the sum of two integer numbers
+    Given an integer operation <op>
+    When I provide a first number <n1>
+    And I provide a second number <n2>
+    Then its INFIX notation is <in>
+    And its PREFIX notation is <pre>
+    And its POSTFIX notation is <post>
+
+    Examples:
+      | op  |n1|n2|   in    |  pre   |  post  |
+      | "+" | 4| 5|( 4 + 5 )|+ (4, 5)|(4, 5) +|
+      | "-" | 8| 5|( 8 - 5 )|- (8, 5)|(8, 5) -|
+      | "*" | 7| 2|( 7 * 2 )|* (7, 2)|(7, 2) *|
+      | "/" | 6| 2|( 6 / 2 )|/ (6, 2)|(6, 2) /|
